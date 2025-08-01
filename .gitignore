@@ -132,8 +132,8 @@ runs/
 *.csv
 *.json
 *.xml
-*.yaml
-*.yml
+# *.yaml  # Keep YAML files for configuration
+# *.yml   # Keep YML files for configuration
 
 # Images and videos
 *.jpg
@@ -147,9 +147,9 @@ runs/
 *.mov
 *.wmv
 
-# Dataset files (too large for git)
-Backend/AstroGuard/datasets/
-Backend/AstroGuard/yolov8s.pt
+# Dataset files - keeping them for the project
+# Backend/AstroGuard/datasets/
+# Backend/AstroGuard/yolov8s.pt
 
 # Temporary files
 *.tmp

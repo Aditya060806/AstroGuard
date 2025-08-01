@@ -1,0 +1,5 @@
+train: ../datasets/space_station/train/images
+val: ../datasets/space_station/val/images
+test: ../datasets/space_station/test/images
+nc: 3
+names: ['FireExtinguisher', 'ToolBox', 'OxygenTank']
