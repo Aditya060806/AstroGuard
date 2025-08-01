@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Space-themed color palette */
+    --background: 230 25% 8%;  /* Deep space navy */
+    --foreground: 210 40% 95%; /* Stellar white */
+
+    --card: 230 25% 12%;       /* Dark space panel */
+    --card-foreground: 210 40% 95%;
+
+    --popover: 230 25% 10%;
+    --popover-foreground: 210 40% 95%;
+
+    --primary: 195 100% 75%;   /* Cosmic cyan */
+    --primary-foreground: 230 25% 8%;
+
+    --secondary: 240 20% 20%;  /* Deep space gray */
+    --secondary-foreground: 210 40% 95%;
+
+    --muted: 230 15% 15%;      /* Nebula muted */
+    --muted-foreground: 210 20% 70%;
+
+    --accent: 270 60% 70%;     /* Aurora purple */
+    --accent-foreground: 230 25% 8%;
+
+    --destructive: 0 84% 60%;  /* Solar red */
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 25%;     /* Subtle cosmic border */
+    --input: 220 15% 18%;      /* Input field space */
+    --ring: 195 100% 75%;      /* Focus ring cosmic */
+
+    --radius: 1rem;
+
+    /* Custom space gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(195 100% 75% / 0.2), hsl(270 60% 70% / 0.2));
+    --gradient-nebula: linear-gradient(180deg, hsl(230 25% 8%), hsl(240 30% 12%));
+    --gradient-aurora: linear-gradient(90deg, hsl(195 100% 75% / 0.3), hsl(270 60% 70% / 0.3), hsl(195 100% 75% / 0.3));
+    
+    /* Enhanced Glass effects */
+    --glass-bg: hsla(230, 25%, 12%, 0.85);
+    --glass-border: hsla(210, 40%, 95%, 0.12);
+    --glass-shadow: 0 8px 32px hsla(195, 100%, 75%, 0.15);
+    --glass-shadow-hover: 0 16px 64px hsla(195, 100%, 75%, 0.25);
+    
+    /* Enhanced Glow effects */
+    --glow-primary: 0 0 20px hsl(195 100% 75% / 0.3);
+    --glow-accent: 0 0 20px hsl(270 60% 70% / 0.3);
+    --glow-orbital: 0 0 40px hsl(195 100% 75% / 0.2);
+    
+    /* 3D Transform effects */
+    --perspective: 1000px;
+    --tilt-angle: 2deg;
+    
+    /* Animation easing */
+    --ease-orbital: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-cosmic: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Enhanced dark space theme */
+    --background: 230 30% 5%;  /* Deeper space */
+    --foreground: 210 50% 98%;
+
+    --card: 230 25% 8%;
+    --card-foreground: 210 50% 98%;
+
+    --popover: 230 30% 6%;
+    --popover-foreground: 210 50% 98%;
+
+    --primary: 195 100% 80%;   /* Brighter cosmic cyan */
+    --primary-foreground: 230 30% 5%;
+
+    --secondary: 240 25% 15%;
+    --secondary-foreground: 210 50% 98%;
+
+    --muted: 230 20% 10%;
+    --muted-foreground: 210 30% 75%;
+
+    --accent: 270 70% 75%;     /* Brighter aurora */
+    --accent-foreground: 230 30% 5%;
+
+    --destructive: 0 90% 65%;
+    --destructive-foreground: 210 50% 98%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 12%;
+    --ring: 195 100% 80%;
+    
+    --sidebar-background: 230 25% 8%;
+    --sidebar-foreground: 210 40% 95%;
+    --sidebar-primary: 195 100% 75%;
+    --sidebar-primary-foreground: 230 25% 8%;
+    --sidebar-accent: 240 20% 15%;
+    --sidebar-accent-foreground: 210 40% 95%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 195 100% 75%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: radial-gradient(ellipse at top, hsl(230 25% 12%) 0%, hsl(230 30% 8%) 50%, hsl(230 35% 5%) 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Starfield background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+      radial-gradient(2px 2px at 40px 70px, hsl(195 100% 75%), transparent),
+      radial-gradient(1px 1px at 90px 40px, hsl(270 60% 70%), transparent),
+      radial-gradient(1px 1px at 130px 80px, #ffffff, transparent),
+      radial-gradient(2px 2px at 160px 30px, hsl(195 100% 75%), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: twinkle 4s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* Glassmorphism utilities */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl p-6 transition-all duration-500;
+  }
+
+  .glass-card:hover {
+    box-shadow: var(--glass-shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .glass-panel {
+    @apply glass rounded-3xl p-8 transition-all duration-700;
+    perspective: var(--perspective);
+  }
+
+  .glass-panel:hover {
+    box-shadow: var(--glass-shadow-hover);
+    transform: translateY(-4px) rotateX(var(--tilt-angle));
+  }
+
+  .cosmic-glow {
+    box-shadow: var(--glow-primary);
+  }
+
+  .aurora-glow {
+    box-shadow: var(--glow-accent);
+  }
+
+  .orbital-glow {
+    box-shadow: var(--glow-orbital);
+  }
+
+  /* 3D hover effects */
+  .hover-tilt {
+    perspective: var(--perspective);
+    transition: transform 0.6s var(--ease-orbital);
+  }
+
+  .hover-tilt:hover {
+    transform: rotateX(var(--tilt-angle)) rotateY(calc(var(--tilt-angle) * 0.5));
+  }
+
+  /* Animated counters */
+  .counter {
+    font-variant-numeric: tabular-nums;
+    transition: all 0.3s var(--ease-cosmic);
+  }
+
+  /* Text truncation utilities */
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+  }
+
+  /* Orbital rotation */
+  .orbit {
+    animation: orbit 20s linear infinite;
+  }
+
+  @keyframes orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Parallax layers */
+  .parallax-1 { transform: translateZ(0); }
+  .parallax-2 { transform: translateZ(-1px) scale(2); }
+  .parallax-3 { transform: translateZ(-2px) scale(3); }
+}

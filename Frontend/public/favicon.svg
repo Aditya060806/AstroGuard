@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="satelliteGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="50%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="32" height="32" fill="#0A0A0A" rx="4"/>
+  
+  <!-- Satellite -->
+  <g transform="translate(16, 16)" filter="url(#glow)">
+    <!-- Main body -->
+    <rect x="-8" y="-4" width="16" height="8" rx="2" fill="url(#satelliteGradient)" stroke="#ffffff" stroke-width="1"/>
+    
+    <!-- Solar panels -->
+    <rect x="-12" y="-3" width="4" height="6" rx="1" fill="#374151" stroke="#6b7280" stroke-width="0.5"/>
+    <rect x="8" y="-3" width="4" height="6" rx="1" fill="#374151" stroke="#6b7280" stroke-width="0.5"/>
+    
+    <!-- Antenna -->
+    <line x1="0" y1="-4" x2="0" y2="-8" stroke="#ffffff" stroke-width="1"/>
+    <circle cx="0" cy="-8" r="1" fill="#ffffff"/>
+    
+    <!-- Detection array -->
+    <rect x="-6" y="4" width="12" height="2" rx="1" fill="#1f2937" stroke="#4b5563" stroke-width="0.5"/>
+    <circle cx="-3" cy="5" r="0.5" fill="#10b981"/>
+    <circle cx="0" cy="5" r="0.5" fill="#10b981"/>
+    <circle cx="3" cy="5" r="0.5" fill="#10b981"/>
+  </g>
+</svg> 
